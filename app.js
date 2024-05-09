@@ -30,6 +30,18 @@ app.post("/shops", (req, res) => {
   res.status(201).json(newShop);
 });
 
+app.put("/shops/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const updatedShop = req.body;
+  const index = shops.findIndex((shop) => shop.id === id);
+  if (index !== -1) {
+    shops[index] = { ...shops[index], ...updatedShop };
+    res.json(shops[index]);
+  } else {
+    res.status(404).send("Shop not found");
+  }
+});
+
 // Delete shop by id
 app.delete("/shops/:id", (req, res) => {
   const id = parseInt(req.params.id);
@@ -49,6 +61,17 @@ app.post("/items", (req, res) => {
   res.status(201).json(newItem);
 });
 
+app.put("/items/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const updatedItem = req.body;
+  const index = items.findIndex((item) => item.id === id);
+  if (index !== -1) {
+    items[index] = { ...items[index], ...updatedItem };
+    res.json(items[index]);
+  } else {
+    res.status(404).send("Item not found");
+  }
+});
 // Delete item by id
 app.delete("/items/:id", (req, res) => {
   const id = parseInt(req.params.id);
