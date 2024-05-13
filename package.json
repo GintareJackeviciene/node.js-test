@@ -1,6 +1,22 @@
 {
   "dependencies": {
     "express": "^4.19.2",
-    "swagger-ui-express": "^5.0.0"
-  }
+    "jest": "^29.7.0",
+    "save-dev": "^0.0.1-security"
+  },
+  "scripts": {
+    "run": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "newman run PlaceholderTesting/shop-item.postman_collection.json",
+    "test:report": "newman run PlaceholderTesting/shop-item.postman_collection.json -r htmlextra"
+  },
+  "author": "",
+  "license": "ISC",
+  "name": "node.js-test",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {
+    "mocha": "^2.5.3"
+  },
+  "description": ""
 }
